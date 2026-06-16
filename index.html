@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="es" data-theme="light">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Aplicacion Pomodoro minimalista con sesiones de 25 y 50 minutos.">
+    <title>Pomodoro</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="timer-panel" aria-labelledby="app-title">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Focus timer</p>
+            <h1 id="app-title">Pomodoro</h1>
+          </div>
+          <button class="icon-button" id="themeToggle" type="button" aria-label="Cambiar tema">
+            <span aria-hidden="true">☾</span>
+          </button>
+        </header>
+
+        <div class="session-tabs" role="tablist" aria-label="Tipo de sesion">
+          <button class="session-tab is-active" type="button" data-session="25" aria-pressed="true">
+            <span>Pomodoro</span>
+            <strong>25 min</strong>
+          </button>
+          <button class="session-tab" type="button" data-session="50" aria-pressed="false">
+            <span>Deep focus</span>
+            <strong>50 min</strong>
+          </button>
+        </div>
+
+        <section class="timer-card" aria-live="polite">
+          <p class="status-label" id="statusLabel">Sesion lista</p>
+          <div class="time-display" id="timeDisplay">25:00</div>
+          <p class="next-label" id="nextLabel">Descanso automatico: 5 min</p>
+
+          <div class="controls" aria-label="Controles del temporizador">
+            <button class="control-button primary" id="startButton" type="button">Start</button>
+            <button class="control-button" id="pauseButton" type="button" disabled>Pause</button>
+            <button class="control-button" id="resetButton" type="button">Reset</button>
+          </div>
+        </section>
+
+        <section class="settings" aria-labelledby="settings-title">
+          <div>
+            <h2 id="settings-title">Configuracion</h2>
+            <p>Volumen de alarma</p>
+          </div>
+          <label class="volume-control">
+            <span id="volumeValue">50%</span>
+            <input id="volumeSlider" type="range" min="0" max="100" value="50">
+          </label>
+        </section>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
