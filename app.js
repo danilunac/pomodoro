@@ -184,7 +184,7 @@ function playAlarm() {
   const gain = audioContext.createGain();
   gain.gain.setValueAtTime(0.0001, audioContext.currentTime);
   gain.gain.exponentialRampToValueAtTime(state.volume * 0.12, audioContext.currentTime + 0.04);
-  gain.gain.exponentialRampToValueAtTime(0.0001, audioContext.currentTime + 1.1);
+  gain.gain.exponentialRampToValueAtTime(0.0001, audioContext.currentTime + 1.5);
   gain.connect(audioContext.destination);
 
   [523.25, 659.25, 783.99].forEach((frequency, index) => {
@@ -193,10 +193,10 @@ function playAlarm() {
     oscillator.frequency.setValueAtTime(frequency, audioContext.currentTime + index * 0.12);
     oscillator.connect(gain);
     oscillator.start(audioContext.currentTime + index * 0.12);
-    oscillator.stop(audioContext.currentTime + 0.9 + index * 0.08);
+    oscillator.stop(audioContext.currentTime + 1.3 + index * 0.08);
   });
 
-  window.setTimeout(() => audioContext.close(), 1400);
+  window.setTimeout(() => audioContext.close(), 1700);
 }
 
 function render() {
